@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+     http://www.springframework.org/schema/beans     
+   http://www.springframework.org/schema/beans/spring-beans.xsd
+   http://www.springframework.org/schema/context 
+   http://www.springframework.org/schema/context/spring-context.xsd
+   http://www.springframework.org/schema/mvc 
+   http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+	<context:component-scan base-package="com.bitwise.OnlineShoppingCart" />
+	
+	
+	<mvc:annotation-driven />
+	
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+	<bean id="login" class="com.bitwise.OnlineShoppingCart.model.Login"></bean>
+	
+	<bean id="productList" class="com.bitwise.OnlineShoppingCart.model.ProductList">
+		<property name="productDetails">
+			<list>
+				<ref bean="product1" />
+				<ref bean="product2" />
+				<ref bean="product3" />
+				<ref bean="product4" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="product1" class="com.bitwise.OnlineShoppingCart.model.ProductDetails">
+		<property name="name" value="Apples" />
+		<property name="price" value="200" />
+		<property name="size" value="medium" />
+		<property name="color" value="red" />
+		<property name="stock" value="35" />
+	</bean>
+
+	<bean id="product2" class="com.bitwise.OnlineShoppingCart.model.ProductDetails">
+		<property name="name" value="Oranges" />
+		<property name="price" value="300" />
+		<property name="size" value="large" />
+		<property name="color" value="orange" />
+		<property name="stock" value="15" />
+
+	</bean>
+
+	<bean id="product3" class="com.bitwise.OnlineShoppingCart.model.ProductDetails">
+		<property name="name" value="Plums" />
+		<property name="price" value="150" />
+		<property name="size" value="small" />
+		<property name="color" value="blood red" />
+		<property name="stock" value="25" />
+
+	</bean>
+
+	<bean id="product4" class="com.bitwise.OnlineShoppingCart.model.ProductDetails">
+		<property name="name" value="Banana" />
+		<property name="price" value="18" />
+		<property name="size" value="medium" />
+		<property name="color" value="yellow" />
+		<property name="stock" value="15" />
+
+	</bean>
+	<bean id="pd" class="com.bitwise.OnlineShoppingCart.model.ProductDetails">
+	</bean>
+
+	<bean id="cart" class="com.bitwise.OnlineShoppingCart.model.Cart">
+
+	</bean>
+</beans>

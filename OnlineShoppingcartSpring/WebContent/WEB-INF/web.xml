@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:web="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.4">
+  <display-name>Online Shopping Cart </display-name>
+  <servlet>
+    <servlet-name>OnlineShoppingCart</servlet-name>
+    <servlet-class>
+           org.springframework.web.servlet.DispatcherServlet
+        </servlet-class>
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>/WEB-INF/spring/OnlineShoppingCart.xml</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>OnlineShoppingCart</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+  <error-page>
+    <exception-type>java.lang.Throwable</exception-type>
+    <location>/GlobalErrorPage.jsp</location>
+  </error-page>
+  <filter>
+  <filter-name>FilterValidator</filter-name>
+  <filter-class>com.bitwise.OnlineShoppingCart.filter.FilterValidator</filter-class>
+  </filter>
+  <filter-mapping>
+  <filter-name>FilterValidator</filter-name>
+  <url-pattern>/app/*</url-pattern>
+  </filter-mapping>
+</web-app>
