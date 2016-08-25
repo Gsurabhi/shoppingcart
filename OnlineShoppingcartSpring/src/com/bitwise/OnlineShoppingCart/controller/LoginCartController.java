@@ -36,9 +36,10 @@ public class LoginCartController {
 				model.addAttribute("alreadyloggedin","Already Logged in");
 				return "index";
 			}
+			model.addAttribute("alreadyloggedin","Successfully Logged in");
 		}
 
-		return "login";
+		return "/login";
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
@@ -56,7 +57,7 @@ public class LoginCartController {
 				url = "index";
 			if (name.equals("surabhi") && password.equals("Asdf@123")) {
 				model.addAttribute("login", login);
-				url = "index";
+				url = "redirect:/app/list";
 				session = request.getSession(true);
 
 				session.setAttribute("name", name);

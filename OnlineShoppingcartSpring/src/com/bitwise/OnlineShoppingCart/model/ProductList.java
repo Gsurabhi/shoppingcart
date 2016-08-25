@@ -32,4 +32,18 @@ public class ProductList {
 		return null;
 	}
 
+	public List<ProductDetails> getList () {
+		return this.productDetails;
+	}
+
+	public ProductDetails getProductByProductName1 (String pname, List<ProductDetails> products) {
+		ProductDetails product = null;
+		for (ProductDetails prod: products) {
+			if (prod.getName() == pname) {
+				product = prod;
+			}
+		}
+		return product;
+	}
+
 }

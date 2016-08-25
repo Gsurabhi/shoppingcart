@@ -1,6 +1,8 @@
 package com.bitwise.OnlineShoppingCart.filter;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -35,13 +37,16 @@ public class FilterValidator implements Filter {
 	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
 	 */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+		PrintWriter out = response.getWriter();
 		HttpServletRequest reuest=(HttpServletRequest)request;
 		HttpServletResponse resp=(HttpServletResponse)response;
 		if (reuest.getSession(false) != null && reuest.getSession(false).getAttribute("name") != null) {
 			chain.doFilter(request, response);
 		}
 		else {
-			resp.sendRedirect("/OnlineShoppingCart/login");
+			//System.out.println("<font color = red> Login first !!!</font>");
+			out.write("Login first !!!");
+			resp.sendRedirect("/OnlineShoppingcartSpring/login");
 			
 		}
 	}

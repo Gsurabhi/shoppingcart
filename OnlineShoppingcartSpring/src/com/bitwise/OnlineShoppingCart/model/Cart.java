@@ -8,11 +8,11 @@ import com.bitwise.OnlineShoppingCart.exceptions.OutOfStockException;
 public class Cart {
 	int cartSize;
 	double cartValue;
-
+    //Cart cart = new Cart();
 	List<ProductDetails> cartItems = new ArrayList<ProductDetails>();
 
 	public int getCartSize() {
-		return cartSize;
+		return this.cartItems.size();
 	}
 
 	public void setCartSize(int cartSize) {
@@ -34,8 +34,10 @@ public class Cart {
 	public void setCartItems(List<ProductDetails> cartItems) {
 		this.cartItems = cartItems;
 	}
+	
+	
 
-	public void addItem(ProductDetails pd) {
+	public int addItem(ProductDetails pd) {
 		if (inStock(pd)) {
 			
 			if(cartItems.contains(pd))
@@ -57,6 +59,7 @@ public class Cart {
 			}
 		} else
 			throw new OutOfStockException("Product out of stock");
+		return getCartSize();
 	}
 
 	private boolean inStock(ProductDetails pd) {
