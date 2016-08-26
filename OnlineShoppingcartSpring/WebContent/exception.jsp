@@ -7,6 +7,6 @@
 <body>
 	<h2><b><font color=red>Product Not Available</font></b></h2>
 	<br><c:out value="${exceptionMsg}"></c:out><br><br>
-	<a href="<c:url value="/app/product1"/>">ViewProduct</a>
+	<a href="<c:url value="/app/list"/>">ViewProduct</a>
 </body>
 </html>

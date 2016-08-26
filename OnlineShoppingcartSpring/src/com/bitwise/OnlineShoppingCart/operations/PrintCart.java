@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.PageContext;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
@@ -17,11 +18,12 @@ public class PrintCart extends SimpleTagSupport {
 		PageContext pageContext = (PageContext) getJspContext();
 		HttpServletResponse res = (HttpServletResponse) pageContext.getResponse();
 		HttpServletRequest request = (HttpServletRequest) pageContext.getRequest();
-		request.getAttribute("cart");
-		System.out.println("cart.getProductDetails() : " + request.getAttribute("cart"));
-		Cart cart = (Cart) request.getAttribute("cart");
+		HttpSession session = request.getSession(false);
+		
+		System.out.println(" hellpc cart.getProductDetails() : " + session.getAttribute("cart"));
+		Cart cart = (Cart) session.getAttribute("cart");
 		PrintWriter out = res.getWriter();
-		System.out.println(cart);
+		System.out.println("hellpc"+cart);
 		out.println("<center>");
 		out.println("<table border=1>");
 		out.println("<tr>");
@@ -36,7 +38,7 @@ public class PrintCart extends SimpleTagSupport {
 
 		out.println("</tr>");
 
-		for (ProductDetails product : ((Cart) request.getAttribute("cart")).getCartItems()) {
+		for (ProductDetails product : ((Cart) session.getAttribute("cart")).getCartItems()) {
 
 			out.println("<tr>");
 			out.println("<td>");
@@ -59,7 +61,7 @@ public class PrintCart extends SimpleTagSupport {
 			out.println("</tr>");
 		}
 		out.println("</table>");
-		out.println("<a href=/OnlineShoppingcartSpring/app/product1>Add More</a>");
+		out.println("<a href=/OnlineShoppingcartSpring/app/list>Add More</a>");
 		out.println("<a href=/OnlineShoppingcartSpring/app/place>Place Order</a>");
 		out.println("<center>");
 		

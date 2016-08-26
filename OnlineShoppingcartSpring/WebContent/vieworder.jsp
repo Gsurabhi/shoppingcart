@@ -20,7 +20,7 @@
 			</tr>
 		</table>
 		
-	<br><br><a href=/OnlineShoppingcartSpring/app/viewcart>View Cart</a>
+	<br><br><a href=/OnlineShoppingcartSpring/app/viewcart1>View Cart</a>
 	<br><br><a href=/OnlineShoppingcartSpring/app/logout>Logout</a>
 	
 </body>

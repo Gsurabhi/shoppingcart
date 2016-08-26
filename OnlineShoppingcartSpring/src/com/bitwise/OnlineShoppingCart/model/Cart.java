@@ -6,13 +6,13 @@ import java.util.List;
 import com.bitwise.OnlineShoppingCart.exceptions.OutOfStockException;
 
 public class Cart {
-	int cartSize;
+	int cartSize = 0;
 	double cartValue;
-    //Cart cart = new Cart();
+    ProductDetails pr = new ProductDetails();
 	List<ProductDetails> cartItems = new ArrayList<ProductDetails>();
 
 	public int getCartSize() {
-		return this.cartItems.size();
+		return cartSize;
 	}
 
 	public void setCartSize(int cartSize) {
@@ -20,6 +20,7 @@ public class Cart {
 	}
 
 	public double getCartValue() {
+		
 		return cartValue;
 	}
 
@@ -35,9 +36,20 @@ public class Cart {
 		this.cartItems = cartItems;
 	}
 	
-	
+	public void clear()
+	{
+		for (ProductDetails pro : cartItems) 
+		{
+			pro.setQuantity(0);
+			
+			}		
+		this.cartSize=0;
+		this.cartValue=0;
+		cartItems.clear();
+		
+	}
 
-	public int addItem(ProductDetails pd) {
+	public void addItem(ProductDetails pd) {
 		if (inStock(pd)) {
 			
 			if(cartItems.contains(pd))
@@ -59,7 +71,7 @@ public class Cart {
 			}
 		} else
 			throw new OutOfStockException("Product out of stock");
-		return getCartSize();
+		
 	}
 
 	private boolean inStock(ProductDetails pd) {

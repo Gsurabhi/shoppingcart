@@ -13,7 +13,7 @@ public class ProductList {
 	public void setProductDetails(List<ProductDetails> productDetails) {
 		//System.out.println("Before setting");
 		for (ProductDetails tmpProductDetails : productDetails) {
-			System.out.println(tmpProductDetails);
+			System.out.println(" hello"+tmpProductDetails);
 		}
 		this.productDetails = productDetails;
 	}

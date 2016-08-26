@@ -36,9 +36,9 @@ public class LoginCartController {
 				model.addAttribute("alreadyloggedin","Already Logged in");
 				return "index";
 			}
-			model.addAttribute("alreadyloggedin","Successfully Logged in");
+			
 		}
-
+		model.addAttribute("alreadyloggedin","Successfully Logged in");
 		return "/login";
 	}
 

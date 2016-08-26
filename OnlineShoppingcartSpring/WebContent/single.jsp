@@ -19,6 +19,7 @@
 				<label>Product Stock: </label>${ prodStock }<br/>
 				<label>Product Color: </label>${ prodColor }<br/>
 				<a class="btn green" href="/OnlineShoppingcartSpring/app/list">Back</a>
+				<br><br><a href=/OnlineShoppingcartSpring/app/logout>Logout</a>
 				</div>
 			</div>
 		</div>
